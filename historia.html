@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Historia · Veni pillate esto</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Mi sitio web</h1>
+    <p>Haz clic en el siguiente enlace para visitar nuestro sitio web:</p>
+    
+    <!-- Aquí creas el enlace -->
+    <a href="https://www.venipillate.com" target="_blank">Visita Google</a>
+<header>
+  <h1>La Historia</h1>
+  <p>Así nació "Veni, pillate esto" 🌴</p>
+  <a class="btn hist" href="index.html">⬅️ Volver al cómic</a>
+</header>
+
+<main>
+  <article class="scene story" id="historia" aria-label="Historia del cómic">
+    <h2><span>Mira ve...</span></h2>
+
+    <p>Cali tiene lugares tan grandiosos que decidimos crear esta pagina de una manera mas interactiva 
+      conozcas los lugares emblematicos de cali.</p>
+
+    <p> Sabias parcero que cali tiene muchos sitios emblematicos como lo son cristo rey, san antonio, 
+    el bulevar y el rio pance, si no lo sabias pues Wwww ahora ya puedes saber y darte cuenta 
+    sobre esta maravillosa ciudad, y sin mas preambulo <strong>"¡Veni, pillate esto!"</strong>.
+    </p>
+    
+    <p>Y tú, ¿ya pillaste esto?</p>
+
+    <div class="tools">
+      <button class="btn g" id="listen" aria-label="Escuchar la historia">🔊 Escuchar historia</button>
+      <button class="btn" id="stop" aria-label="Detener la lectura">⏹️ Detener</button>
+      <a class="btn hist" href="index.html#scenes">📖 Ir a las escenas</a>
+    </div>
+  </article>
+</main>
+
+<footer>Veni pillate esto · Desocupe masivo · Hecho en Cali</footer>
+
+<script>
+const art=document.getElementById('historia');
+document.getElementById('listen').onclick=()=>{
+  speechSynthesis.cancel();
+  const txt=[...art.querySelectorAll('h2 span,p')].map(e=>e.textContent).join(' ');
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='es-CO';speechSynthesis.speak(u);
+};
+document.getElementById('stop').onclick=()=>speechSynthesis.cancel();
+</script>
+</body>
+</html>
